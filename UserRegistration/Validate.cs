@@ -16,8 +16,10 @@ namespace UserRegistration
         public static string Regex_LastName = "^[A-Z]{1}[A-Za-z]{2,}$";
         //Regular expression for valid email
         public const string Regex_Email = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
-        //Pattern for Phone Name validation ---- country code followed by space and 10 digit numbers
+        //Regular expression for Phone Name validation ---- country code followed by space and 10 digit numbers
         public const string Regex_PhoneNumber = "[+][1-9]{1,2}[ ][0-9]{10}$";
+        //Regular expression for Password validation ---- min 8 characters
+        public const string Regex_Password1 = "^[A-Za-z0-9]{8,15}$";
         public bool ValidateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, REGEX_FIRSTNAME);
@@ -33,6 +35,10 @@ namespace UserRegistration
         public bool ValidateMobile(string PhoneNumber)
         {
             return Regex.IsMatch(PhoneNumber, Regex_PhoneNumber);
+        }
+        public bool ValidatePassword1(string password)
+        {
+            return Regex.IsMatch(password, Regex_Password1);
         }
     }
 }
