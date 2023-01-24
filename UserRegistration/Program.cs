@@ -8,6 +8,7 @@ namespace UserRegistration
         {
             Console.WriteLine("Welcome to User Registration Practice Problems!!!");
             Console.WriteLine("\n1. Enter valid First Name");
+            Console.WriteLine("2. Enter valid Last Name");
             Console.Write("Enter your choice : ");
             int choice = Convert.ToInt32(Console.ReadLine());
             Validate validate1 = new Validate();
@@ -18,7 +19,11 @@ namespace UserRegistration
                     string FirstName = Console.ReadLine();
                     Console.WriteLine(validate1.ValidateFirstName(FirstName));
                     break;
-
+                case 2:
+                    Console.Write("Enter Your Last Name : ");
+                    string LastName = Console.ReadLine();
+                    Console.WriteLine(validate1.ValidateLastName(LastName));
+                    break;
                 default:
                     Console.WriteLine("Please enter correct choice");
                     break;
