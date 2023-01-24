@@ -20,8 +20,10 @@ namespace UserRegistration
         public const string Regex_PhoneNumber = "[+][1-9]{1,2}[ ][0-9]{10}$";
         //Regular expression for Password validation ---- min 8 characters
         public const string Regex_Password1 = "^[A-Za-z0-9]{8,}$";
-        ////Regular expression to match previous condition + atleast one Upper Case
+        //Regular expression to match previous condition + atleast one Upper Case
         public const string Regex_Password2 = "^(?=.*[A-Z]).{8,}$";
+        //Regular expression below will match all previous conditions + atleast one numeric value
+        public const string Regex_Password3 = "^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
         public bool ValidateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, REGEX_FIRSTNAME);
@@ -46,6 +48,11 @@ namespace UserRegistration
         {
             return Regex.IsMatch(password2, Regex_Password2);
         }
+        public bool ValidatePassword3(string password3)
+        {
+            return Regex.IsMatch(password3, Regex_Password3);
+        }
+
     }
 }
 
