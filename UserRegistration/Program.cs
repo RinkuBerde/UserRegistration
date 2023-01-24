@@ -15,6 +15,7 @@ namespace UserRegistration
             Console.WriteLine("6. Password previous condition with atleast 1 upper case");
             Console.WriteLine("7. Password previous conditions with atleast 1 numeric number");
             Console.WriteLine("8. Password all previous conditions with exactly 1 special character");
+            Console.WriteLine("9. Test all the sample emails provided separately");
             Console.Write("Enter your choice : ");
             int choice = Convert.ToInt32(Console.ReadLine());
             Validate validate1 = new Validate();
@@ -59,6 +60,10 @@ namespace UserRegistration
                     Console.WriteLine("Enter Your Password");
                     string password4 = Console.ReadLine();
                     Console.WriteLine(validate1.ValidatePassword1(password4));
+                    break;
+                case 9:
+                   // Validate validate1 = new Validate();
+                    validate1.Test();
                     break;
                 default:
                     Console.WriteLine("Please enter correct choice");
