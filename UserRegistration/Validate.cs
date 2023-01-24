@@ -19,7 +19,9 @@ namespace UserRegistration
         //Regular expression for Phone Name validation ---- country code followed by space and 10 digit numbers
         public const string Regex_PhoneNumber = "[+][1-9]{1,2}[ ][0-9]{10}$";
         //Regular expression for Password validation ---- min 8 characters
-        public const string Regex_Password1 = "^[A-Za-z0-9]{8,15}$";
+        public const string Regex_Password1 = "^[A-Za-z0-9]{8,}$";
+        ////Regular expression to match previous condition + atleast one Upper Case
+        public const string Regex_Password2 = "^(?=.*[A-Z]).{8,}$";
         public bool ValidateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, REGEX_FIRSTNAME);
@@ -39,6 +41,10 @@ namespace UserRegistration
         public bool ValidatePassword1(string password)
         {
             return Regex.IsMatch(password, Regex_Password1);
+        }
+        public bool ValidatePassword2(string password2)
+        {
+            return Regex.IsMatch(password2, Regex_Password2);
         }
     }
 }
