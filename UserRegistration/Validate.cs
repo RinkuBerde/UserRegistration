@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -24,6 +26,8 @@ namespace UserRegistration
         public const string Regex_Password2 = "^(?=.*[A-Z]).{8,}$";
         //Regular expression below will match all previous conditions + atleast one numeric value
         public const string Regex_Password3 = "^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+        //Regular expression below will match previous conditions + exactly one special character
+        public const string Regex_Password4 = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@^*!~]).{8,}$"; 
         public bool ValidateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, REGEX_FIRSTNAME);
@@ -51,6 +55,10 @@ namespace UserRegistration
         public bool ValidatePassword3(string password3)
         {
             return Regex.IsMatch(password3, Regex_Password3);
+        }
+        public bool ValidatePassword4(string password4)
+        {
+            return Regex.IsMatch(password4, Regex_Password4);
         }
 
     }
