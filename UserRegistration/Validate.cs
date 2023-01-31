@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace UserRegistration
 {
-    internal class Validate
+    public class Validate
     {       
         //Regular expression or validating first name
        public static string REGEX_FIRSTNAME = "^[A-Z]{1}[A-Za-z]{2,}$";
@@ -78,6 +78,21 @@ namespace UserRegistration
             }
         }
 
+        public string Email(string email)
+        {
+            Regex regex = new Regex(Regex_Email);
+
+            bool result = regex.IsMatch(email);
+            if (result)
+            {
+                return email;
+            }
+            else
+            {
+                return default;
+            }
+            throw new NotImplementedException();
+        }
     }
 }
 
