@@ -138,5 +138,98 @@ namespace UnitTestProject
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void GivenUserFistName_OnValidation_ShouldThrowCustomException()
+        {
+            try
+            {
+                //Arrange -- declare a firstName string variable 
+                string firstName = "rinku";
+
+                //Act
+                bool FirstName = regexValidation.ValidateFirstName(firstName);
+            }
+            catch (ValidationExceptions e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid First Name", e.Message);
+
+            }
+        }
+
+        [TestMethod]
+        public void GivenUserLastName_OnValidation_ShouldThrowCustomException()
+        {
+            try
+            {
+                //Arrange -- declare a lastName string variable 
+                string lastName = "berde";
+
+                //Act
+                bool LastName = regexValidation.ValidateFirstName(lastName);
+            }
+            catch (ValidationExceptions e)
+            {
+
+                //Assert
+                Assert.AreEqual("Invalid Last Name", e.Message);
+            }
+        }
+        [TestMethod]
+        public void GivenEmailId_OnValidation_ShouldThrowCustomException()
+        {
+            try
+            {
+                //Arrange -- declare an email string variable 
+                string email = "berde.rinku.com";
+
+                //Act
+                bool Email = regexValidation.ValidateEmail(email);
+            }
+            catch (ValidationExceptions e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid Email", e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void GivenMobileNumber_OnValidation_ShouldThrowCustomException()
+        {
+            try
+            {
+                //Arrange -- declare a number string variable 
+                string number = "91 0863053941";
+
+                //Act
+                bool PhoneNumber = regexValidation.ValidateMobile(number);
+
+            }
+            catch (ValidationExceptions e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid Phone Number", e.Message);
+            }
+        }
+
+        [TestMethod]
+        public void GivenPassword_OnValidation_ShouldThrowCustomException()
+        {
+            try
+            {
+                //Arrange -- declare a password string variable 
+                string password = "rinku1r@q";
+
+                //Act
+                bool Password = regexValidation.ValidatePassword4(password);
+
+            }
+            catch (ValidationExceptions e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid Password", e.Message);
+            }
+        }
     }
 }
