@@ -13,7 +13,7 @@ namespace UserRegistration
     public class Validate
     {       
         //Regular expression or validating first name
-       public static string REGEX_FIRSTNAME = "^[A-Z]{1}[A-Za-z]{2,}$";
+       public static string Regex_FirstName = "^[A-Z]{1}[A-Za-z]{2,}$";
         // Regular expression for last name
         public static string Regex_LastName = "^[A-Z]{1}[A-Za-z]{2,}$";
         //Regular expression for valid email
@@ -27,39 +27,61 @@ namespace UserRegistration
         //Regular expression below will match all previous conditions + atleast one numeric value
         public const string Regex_Password3 = "^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
         //Regular expression below will match previous conditions + exactly one special character
-        public const string Regex_Password4 = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@^*!~]).{8,}$"; 
-        public bool ValidateFirstName(string firstName)
-        {
-            return Regex.IsMatch(firstName, REGEX_FIRSTNAME);
-        }
-        public bool ValidateLastName(string LastName)
-        {
-            return Regex.IsMatch(LastName, Regex_LastName);
-        }
-        public bool ValidateEmail(string email)
-        {
-            return Regex.IsMatch(email, Regex_Email);
-        }
-        public bool ValidateMobile(string PhoneNumber)
-        {
-            return Regex.IsMatch(PhoneNumber, Regex_PhoneNumber);
-        }
-        public bool ValidatePassword1(string password)
-        {
-            return Regex.IsMatch(password, Regex_Password1);
-        }
-        public bool ValidatePassword2(string password2)
-        {
-            return Regex.IsMatch(password2, Regex_Password2);
-        }
-        public bool ValidatePassword3(string password3)
-        {
-            return Regex.IsMatch(password3, Regex_Password3);
-        }
-        public bool ValidatePassword4(string password4)
-        {
-            return Regex.IsMatch(password4, Regex_Password4);
-        }
+        public const string Regex_Password4 = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@^*!~]).{8,}$";
+
+               ////Method for first name validation////
+        public bool ValidateFirstName(string firstName) => (Regex.IsMatch(firstName, Regex_FirstName));
+        // public bool ValidateFirstName(string firstName)
+        // {
+        //     return Regex.IsMatch(firstName, REGEX_FIRSTNAME);
+        // }
+       
+        ////Method for Last name validation////
+        public bool ValidateLastName(string LastName) => (Regex.IsMatch(LastName, Regex_LastName));
+        // public bool ValidateLastName(string LastName)
+        // {
+        //     return Regex.IsMatch(LastName, Regex_LastName);
+        // }
+
+                 ////Method for Email validation/////
+        public bool ValidateEmail(string email) => (Regex.IsMatch(email, Regex_Email));
+        // public bool ValidateEmail(string email)
+        // {
+        //     return Regex.IsMatch(email, Regex_Email);
+        // }
+
+        ////Method for Phone Number validation////
+        public bool ValidatePhone(string PhoneNumber) => (Regex.IsMatch(PhoneNumber, Regex_PhoneNumber));
+        // public bool ValidateMobile(string PhoneNumber)
+        // {
+        //     return Regex.IsMatch(PhoneNumber, Regex_PhoneNumber);
+        // }
+
+              ////Method for Password validation////     
+        public bool ValidatePassword(string password) => (Regex.IsMatch(password, Regex_Password1));
+        //  public bool ValidatePassword1(string password)
+        //  {
+        //     return Regex.IsMatch(password, Regex_Password1);
+        //  }
+
+        public bool ValidatePassword2(string password) => (Regex.IsMatch(password, Regex_Password2));
+        // public bool ValidatePassword2(string password2)
+        // {
+        //     return Regex.IsMatch(password2, Regex_Password2);
+        // }
+
+        public bool ValidatePassword3(string password) => (Regex.IsMatch(password, Regex_Password3));
+        // public bool ValidatePassword3(string password3)
+        // {
+        //     return Regex.IsMatch(password3, Regex_Password3);
+        // }
+
+        public bool ValidatePassword4(string password) => (Regex.IsMatch(password, Regex_Password4));
+       // public bool ValidatePassword4(string password4)
+       // {
+       //     return Regex.IsMatch(password4, Regex_Password4);
+       // }
+     
         //Method to test each Valid and Invalid email provided separately for testing
         public void Test()
         {
@@ -77,7 +99,7 @@ namespace UserRegistration
                 Console.WriteLine((i + 1) + ". " + invalidEmails[i] + " : " + validate.ValidateEmail(invalidEmails[i]));
             }
         }
-
+       
         public string Email(string email)
         {
             Regex regex = new Regex(Regex_Email);
